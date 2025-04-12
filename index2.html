@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Jungle Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FDCD22',secondary:'#ff00c8'},borderRadius:{'none':'0px','sm':'8px',DEFAULT:'12px','md':'16px','lg':'20px','xl':'24px','2xl':'28px','3xl':'32px','full':'9999px','button':'12px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Rajdhani', sans-serif;
+background-color: #0a0a0a;
+color: #e0e0e0;
+overflow-x: hidden;
+perspective: 1000px;
+}
+.font-orbitron {
+font-family: 'Orbitron', sans-serif;
+}
+.matrix-bg {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+opacity: 0.15;
+}
+.glitch {
+position: relative;
+}
+.glitch::before,
+.glitch::after {
+content: attr(data-text);
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+.glitch::before {
+left: 2px;
+text-shadow: -1px 0 #00ff9d;
+clip: rect(44px, 450px, 56px, 0);
+animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+left: -2px;
+text-shadow: -1px 0 #ff00c8;
+clip: rect(44px, 450px, 56px, 0);
+animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim {
+0% { clip: rect(10px, 9999px, 32px, 0); }
+5% { clip: rect(78px, 9999px, 91px, 0); }
+10% { clip: rect(33px, 9999px, 99px, 0); }
+15% { clip: rect(11px, 9999px, 56px, 0); }
+20% { clip: rect(67px, 9999px, 92px, 0); }
+25% { clip: rect(25px, 9999px, 55px, 0); }
+30% { clip: rect(22px, 9999px, 90px, 0); }
+35% { clip: rect(93px, 9999px, 23px, 0); }
+40% { clip: rect(6px, 9999px, 98px, 0); }
+45% { clip: rect(50px, 9999px, 69px, 0); }
+50% { clip: rect(82px, 9999px, 12px, 0); }
+55% { clip: rect(21px, 9999px, 78px, 0); }
+60% { clip: rect(46px, 9999px, 11px, 0); }
+65% { clip: rect(34px, 9999px, 49px, 0); }
+70% { clip: rect(8px, 9999px, 90px, 0); }
+75% { clip: rect(66px, 9999px, 24px, 0); }
+80% { clip: rect(32px, 9999px, 13px, 0); }
+85% { clip: rect(63px, 9999px, 56px, 0); }
+90% { clip: rect(15px, 9999px, 85px, 0); }
+95% { clip: rect(40px, 9999px, 36px, 0); }
+100% { clip: rect(57px, 9999px, 98px, 0); }
+}
+@keyframes glitch-anim2 {
+0% { clip: rect(65px, 9999px, 12px, 0); }
+5% { clip: rect(33px, 9999px, 46px, 0); }
+10% { clip: rect(38px, 9999px, 11px, 0); }
+15% { clip: rect(96px, 9999px, 78px, 0); }
+20% { clip: rect(23px, 9999px, 35px, 0); }
+25% { clip: rect(69px, 9999px, 83px, 0); }
+30% { clip: rect(26px, 9999px, 97px, 0); }
+35% { clip: rect(44px, 9999px, 16px, 0); }
+40% { clip: rect(89px, 9999px, 23px, 0); }
+45% { clip: rect(10px, 9999px, 45px, 0); }
+50% { clip: rect(36px, 9999px, 81px, 0); }
+55% { clip: rect(73px, 9999px, 18px, 0); }
+60% { clip: rect(42px, 9999px, 11px, 0); }
+65% { clip: rect(25px, 9999px, 61px, 0); }
+70% { clip: rect(78px, 9999px, 45px, 0); }
+75% { clip: rect(13px, 9999px, 55px, 0); }
+80% { clip: rect(66px, 9999px, 95px, 0); }
+85% { clip: rect(29px, 9999px, 83px, 0); }
+90% { clip: rect(47px, 9999px, 65px, 0); }
+95% { clip: rect(52px, 9999px, 12px, 0); }
+100% { clip: rect(92px, 9999px, 31px, 0); }
+}
+.scan-line {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: rgba(0, 255, 157, 0.5);
+z-index: 2;
+animation: scan 3s linear infinite;
+}
+@keyframes scan {
+0% { top: 0; }
+100% { top: 100%; }
+}
+.project-card {
+transition: all 0.3s ease;
+background: rgba(20, 20, 20, 0.8);
+border: 1px solid rgba(0, 255, 157, 0.2);
+position: relative;
+overflow: hidden;
+transform-style: preserve-3d;
+}
+.project-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, rgba(0, 255, 157, 0.1), transparent 70%);
+z-index: 0;
+}
+.project-card:hover {
+transform: translateY(-5px) translateZ(20px) rotateX(5deg);
+box-shadow: 0 15px 30px rgba(0, 255, 157, 0.3);
+border-color: rgba(0, 255, 157, 0.6);
+}
+.project-card:hover::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, rgba(0, 255, 157, 0.2), transparent 70%);
+z-index: 0;
+animation: securityScan 2s linear;
+transform: translateZ(10px);
+}
+@keyframes securityScan {
+0% { height: 0; }
+100% { height: 100%; }
+}
+.skill-bar {
+height: 8px;
+background: rgba(40, 40, 40, 0.5);
+border-radius: 4px;
+overflow: hidden;
+position: relative;
+transform-style: preserve-3d;
+transform: perspective(1000px);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.skill-progress {
+height: 100%;
+background: linear-gradient(90deg, #00ff9d, #00ffcc);
+border-radius: 4px;
+position: relative;
+transition: width 1.5s ease-in-out;
+transform: translateZ(5px);
+}
+.skill-progress::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+0% { transform: translateX(-100%); }
+100% { transform: translateX(100%); }
+}
+.nav-item {
+position: relative;
+transition: all 0.3s ease;
+}
+.nav-item::before {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 0;
+height: 2px;
+background: linear-gradient(90deg, #00ff9d, transparent);
+transition: width 0.3s ease;
+}
+.nav-item:hover::before {
+width: 100%;
+}
+.nav-item:hover {
+color: #00ff9d;
+text-shadow: 0 0 8px rgba(0, 255, 157, 0.5);
+}
+.form-input {
+background: rgba(30, 30, 30, 0.8);
+border: 1px solid rgba(0, 255, 157, 0.3);
+color: #e0e0e0;
+transition: all 0.3s ease;
+}
+.form-input:focus {
+border-color: #00ff9d;
+box-shadow: 0 0 0 2px rgba(0, 255, 157, 0.2);
+background: rgba(20, 20, 20, 0.9);
+}
+.btn-primary {
+background: linear-gradient(45deg, #00ff9d, #00d6a4);
+color: #0a0a0a;
+font-weight: 600;
+border: none;
+position: relative;
+overflow: hidden;
+z-index: 1;
+transition: all 0.3s ease;
+transform-style: preserve-3d;
+box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+}
+.btn-primary::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+transition: all 0.5s ease;
+z-index: -1;
+}
+.btn-primary:hover::before {
+left: 100%;
+}
+.btn-primary:hover {
+box-shadow: 0 8px 20px rgba(0, 255, 157, 0.5);
+transform: translateY(-2px) translateZ(10px);
+}
+.btn-outline {
+background: transparent;
+border: 1px solid #00ff9d;
+color: #00ff9d;
+position: relative;
+overflow: hidden;
+z-index: 1;
+transition: all 0.3s ease;
+transform-style: preserve-3d;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.btn-outline::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.1), transparent);
+transition: all 0.5s ease;
+z-index: -1;
+}
+.btn-outline:hover::before {
+left: 100%;
+}
+.btn-outline:hover {
+box-shadow: 0 8px 20px rgba(0, 255, 157, 0.3);
+transform: translateY(-2px) translateZ(10px);
+}
+.section-title {
+position: relative;
+display: inline-block;
+transform-style: preserve-3d;
+}
+.section-title::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 0;
+width: 60px;
+height: 3px;
+background: linear-gradient(90deg, #00ff9d, transparent);
+transform: translateZ(5px);
+box-shadow: 0 2px 5px rgba(0, 255, 157, 0.3);
+}
+#matrix-canvas {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+background: rgba(30, 30, 30, 0.8);
+border: 1px solid rgba(0, 255, 157, 0.3);
+border-radius: 4px;
+cursor: pointer;
+position: relative;
+transition: all 0.3s ease;
+}
+.custom-checkbox:checked {
+background: #00ff9d;
+border-color: #00ff9d;
+}
+.custom-checkbox:checked::before {
+content: '✓';
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: #0a0a0a;
+font-size: 14px;
+}
+.custom-checkbox:focus {
+box-shadow: 0 0 0 2px rgba(0, 255, 157, 0.2);
+}
+.switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(30, 30, 30, 0.8);
+transition: .4s;
+border-radius: 24px;
+border: 1px solid rgba(0, 255, 157, 0.3);
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 16px;
+width: 16px;
+left: 4px;
+bottom: 3px;
+background-color: #e0e0e0;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #00ff9d;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+background-color: #0a0a0a;
+}
+.cursor-trailer {
+position: fixed;
+width: 20px;
+height: 20px;
+background: rgba(0, 255, 157, 0.5);
+border-radius: 50%;
+pointer-events: none;
+z-index: 9999;
+mix-blend-mode: screen;
+transform: translate(-50%, -50%);
+transition: width 0.3s, height 0.3s, background 0.3s;
+filter: blur(2px) drop-shadow(0 0 5px rgba(0, 255, 157, 0.5));
+}
+.cursor-trailer.active {
+width: 50px;
+height: 50px;
+background: rgba(0, 255, 157, 0.2);
+filter: blur(5px) drop-shadow(0 0 10px rgba(0, 255, 157, 0.8));
+}
+.cursor-trailer::before {
+content: '';
+position: absolute;
+top: -5px;
+left: -5px;
+right: -5px;
+bottom: -5px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(0, 255, 157, 0.2) 0%, rgba(0, 255, 157, 0) 70%);
+z-index: -1;
+}
+.terminal-text {
+font-family: 'Courier New', monospace;
+color: #00ff9d;
+overflow: hidden;
+white-space: nowrap;
+border-right: 2px solid #00ff9d;
+animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+from { width: 0 }
+to { width: 100% }
+}
+@keyframes blink-caret {
+from, to { border-color: transparent }
+50% { border-color: #00ff9d }
+}
+.jungle-bg {
+background-image: url('https://public.readdy.ai/ai/img_res/ae38f09fcb3287bde8704b73b745a74c.jpg');
+background-size: cover;
+background-position: center;
+position: relative;
+}
+.jungle-bg::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.5));
+z-index: 0;
+}
+.tab-button {
+background: rgba(30, 30, 30, 0.8);
+border: 1px solid rgba(0, 255, 157, 0.3);
+color: #e0e0e0;
+transition: all 0.3s ease;
+}
+.tab-button.active {
+background: rgba(0, 255, 157, 0.2);
+border-color: #00ff9d;
+color: #00ff9d;
+}
+.tab-button:hover {
+background: rgba(0, 255, 157, 0.1);
+}
+.security-badge {
+background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+border: 1px solid rgba(0, 255, 157, 0.3);
+display: inline-flex;
+align-items: center;
+padding: 4px 12px;
+border-radius: 16px;
+font-size: 12px;
+color: #00ff9d;
+margin-right: 8px;
+margin-bottom: 8px;
+position: relative;
+overflow: hidden;
+transform-style: preserve-3d;
+transform: translateZ(0);
+transition: all 0.3s ease;
+}
+.security-badge:hover {
+transform: translateZ(10px) scale(1.05);
+box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+}
+.security-badge::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.1), transparent);
+animation: shimmer 2s infinite;
+z-index: 0;
+}
+.security-badge i {
+margin-right: 4px;
+}
+.progress-ring {
+transform: rotate(-90deg);
+transform-origin: center;
+filter: drop-shadow(0 2px 5px rgba(0, 255, 157, 0.3));
+}
+.progress-ring-circle {
+stroke: #00ff9d;
+stroke-dasharray: 283;
+stroke-dashoffset: 0;
+stroke-linecap: round;
+transition: stroke-dashoffset 1s ease;
+}
+.progress-ring-bg {
+stroke: rgba(30, 30, 30, 0.8);
+}
+</style>
+</head>
+<body>
+<div class="cursor-trailer"></div>
+<canvas id="matrix-canvas"></canvas>
+<div class="scan-line"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md z-50 border-b border-primary border-opacity-20">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<div class="hidden md:flex space-x-8">
+<a href="#home" class="nav-item font-orbitron text-sm uppercase tracking-wider">Home</a>
+<a href="#about" class="nav-item font-orbitron text-sm uppercase tracking-wider">About</a>
+<a href="#projects" class="nav-item font-orbitron text-sm uppercase tracking-wider">Projects</a>
+<a href="#skills" class="nav-item font-orbitron text-sm uppercase tracking-wider">Skills</a>
+<a href="#contact" class="nav-item font-orbitron text-sm uppercase tracking-wider">Contact</a>
+</div>
+<div class="md:hidden w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-menu-line ri-2x"></i>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section id="home" class="jungle-bg min-h-screen flex items-center pt-16 relative">
+<div class="container mx-auto px-4 py-20 relative z-10">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 mb-10 md:mb-0">
+<div class="font-orbitron text-sm text-primary mb-4 terminal-text">SECURITY CLEARANCE GRANTED</div>
+<h1 class="text-4xl md:text-6xl font-orbitron font-bold mb-6 glitch" data-text="CYBER JUNGLE SECURITY">CYBER JUNGLE SECURITY BY ASRA</h1>
+<p class="text-lg mb-8 max-w-lg">Navigating the digital wilderness with cutting-edge cybersecurity solutions. Where technology meets nature's resilience to create impenetrable digital ecosystems.</p>
+<div class="flex flex-wrap gap-4">
+<button class="btn-primary px-8 py-3 !rounded-button whitespace-nowrap flex items-center">
+<span class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-shield-check-line"></i>
+</span>
+Explore Security Solutions
+</button>
+<button class="btn-outline px-8 py-3 !rounded-button whitespace-nowrap flex items-center">
+<span class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-terminal-box-line"></i>
+</span>
+View Projects
+</button>
+</div>
+</div>
+<div class="md:w-1/2 flex justify-center">
+<div class="relative" id="cyber-panther-container">
+<img src="https://public.readdy.ai/ai/img_res/db69e60d6a78bad0f44c4359eb74bb60.jpg" alt="Cyber Panther Asra" class="w-full max-w-md relative z-10 cyber-panther">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary to-transparent opacity-10 blur-xl rounded-full"></div>
+<div class="absolute inset-0 cyber-glow"></div>
+</div>
+</div>
+<style>
+.cyber-panther {
+transform-style: preserve-3d;
+transition: transform 0.5s ease;
+filter: drop-shadow(0 0 20px rgba(0, 255, 157, 0.3));
+}
+.cyber-glow {
+background: radial-gradient(circle, rgba(0, 255, 157, 0.2) 0%, rgba(0, 255, 157, 0) 70%);
+z-index: 5;
+pointer-events: none;
+animation: pulse 3s infinite alternate;
+}
+@keyframes pulse {
+0% { opacity: 0.3; }
+100% { opacity: 0.7; }
+}
+</style>
+<script>
+// 3D hover effect for cyber panther
+const pantherContainer = document.getElementById('cyber-panther-container');
+const pantherImage = pantherContainer.querySelector('.cyber-panther');
+pantherContainer.addEventListener('mousemove', (e) => {
+const rect = pantherContainer.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+const moveX = (x - centerX) / 20;
+const moveY = (y - centerY) / 20;
+pantherImage.style.transform = `translateZ(50px) rotateX(${-moveY}deg) rotateY(${moveX}deg)`;
+});
+pantherContainer.addEventListener('mouseleave', () => {
+pantherImage.style.transform = 'translateZ(0) rotateX(0) rotateY(0)';
+});
+</script>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-black relative">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-orbitron font-bold mb-16 section-title">SECURE HABITAT</h2>
+<div class="flex flex-col md:flex-row gap-12">
+<div class="md:w-1/2">
+<div class="project-card p-6 h-full">
+<h3 class="text-xl font-orbitron mb-4 text-primary">Mission Protocol</h3>
+<p class="mb-6">As a cybersecurity specialist with over 8 years of experience, I've developed a unique approach that combines aggressive threat hunting with organic defensive strategies. My methodology mimics nature's most resilient systems to create adaptive security solutions.</p>
+<p>My mission is to transform vulnerable digital environments into thriving, self-defending ecosystems that evolve alongside emerging threats. Just as a jungle adapts to survive, my security frameworks continuously learn and strengthen.</p>
+<div class="mt-8 flex flex-wrap">
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-shield-check-fill"></i>
+</span>
+CERTIFIED ETHICAL HACKER
+</div>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-lock-password-fill"></i>
+</span>
+CISSP
+</div>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-cloud-fill"></i>
+</span>
+AWS SECURITY SPECIALIST
+</div>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-bug-fill"></i>
+</span>
+OFFENSIVE SECURITY
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-1/2">
+<div class="grid grid-cols-2 gap-6 h-full">
+<div class="project-card p-6 flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-primary mb-4">
+<i class="ri-shield-cross-line ri-3x"></i>
+</div>
+<h4 class="text-lg font-orbitron mb-2 text-center">Threat Detection</h4>
+<p class="text-center text-sm">Advanced monitoring systems that identify threats before they penetrate your defenses</p>
+</div>
+<div class="project-card p-6 flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-primary mb-4">
+<i class="ri-lock-password-line ri-3x"></i>
+</div>
+<h4 class="text-lg font-orbitron mb-2 text-center">Secure Architecture</h4>
+<p class="text-center text-sm">Building resilient systems with multiple layers of protection</p>
+</div>
+<div class="project-card p-6 flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-primary mb-4">
+<i class="ri-code-box-line ri-3x"></i>
+</div>
+<h4 class="text-lg font-orbitron mb-2 text-center">Secure Development</h4>
+<p class="text-center text-sm">Implementing security at every stage of the development lifecycle</p>
+</div>
+<div class="project-card p-6 flex flex-col items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-primary mb-4">
+<i class="ri-spy-line ri-3x"></i>
+</div>
+<h4 class="text-lg font-orbitron mb-2 text-center">Penetration Testing</h4>
+<p class="text-center text-sm">Identifying vulnerabilities through simulated cyber attacks</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-gradient-to-b from-black to-[#0a1a10] relative">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-orbitron font-bold mb-16 section-title">DIGITAL ECOSYSTEM</h2>
+<div class="flex justify-center mb-10">
+<div class="inline-flex p-1 bg-black bg-opacity-50 border border-primary border-opacity-20 rounded-full">
+<button class="tab-button active px-6 py-2 rounded-full text-sm font-orbitron">All Projects</button>
+<button class="tab-button px-6 py-2 rounded-full text-sm font-orbitron">Security</button>
+<button class="tab-button px-6 py-2 rounded-full text-sm font-orbitron">Development</button>
+<button class="tab-button px-6 py-2 rounded-full text-sm font-orbitron">Research</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="project-card overflow-hidden rounded-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/d5fdaaf24e2277e11887b3a2fc305be9.jpg" alt="Project 1" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-orbitron text-primary">NexusGuard Firewall</h3>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-shield-flash-fill"></i>
+</span>
+SECURITY
+</div>
+</div>
+<p class="mb-4">Advanced firewall system with AI-powered threat detection and real-time adaptation to emerging attack vectors.</p>
+<div class="flex justify-between items-center">
+<button class="btn-outline px-4 py-2 text-sm !rounded-button whitespace-nowrap">View Details</button>
+<div class="flex space-x-2">
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-github-fill"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-external-link-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="project-card overflow-hidden rounded-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/b24300bf7e0792cb01919c1847a04d96.jpg" alt="Project 2" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-orbitron text-primary">Phantom Tracer</h3>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-spy-fill"></i>
+</span>
+FORENSICS
+</div>
+</div>
+<p class="mb-4">Digital forensics tool that tracks and analyzes attack patterns, creating visual maps of threat actor movements.</p>
+<div class="flex justify-between items-center">
+<button class="btn-outline px-4 py-2 text-sm !rounded-button whitespace-nowrap">View Details</button>
+<div class="flex space-x-2">
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-github-fill"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-external-link-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="project-card overflow-hidden rounded-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/531393b84292ccc8a6c05599850a1a34.jpg" alt="Project 3" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-orbitron text-primary">BlockVault</h3>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-lock-fill"></i>
+</span>
+BLOCKCHAIN
+</div>
+</div>
+<p class="mb-4">Secure blockchain implementation for sensitive data storage with quantum-resistant encryption protocols.</p>
+<div class="flex justify-between items-center">
+<button class="btn-outline px-4 py-2 text-sm !rounded-button whitespace-nowrap">View Details</button>
+<div class="flex space-x-2">
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-github-fill"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-external-link-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="project-card overflow-hidden rounded-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/cef899a0bcf502fa1fa3399dbb5c9f9a.jpg" alt="Project 4" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-orbitron text-primary">IoT Guardian</h3>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-device-fill"></i>
+</span>
+IOT
+</div>
+</div>
+<p class="mb-4">Comprehensive security framework for IoT devices with automated vulnerability scanning and patch management.</p>
+<div class="flex justify-between items-center">
+<button class="btn-outline px-4 py-2 text-sm !rounded-button whitespace-nowrap">View Details</button>
+<div class="flex space-x-2">
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-github-fill"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-external-link-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="project-card overflow-hidden rounded-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/3692fd2adef944e7017db7861513d2d5.jpg" alt="Project 5" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-orbitron text-primary">SecureCode IDE</h3>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-code-fill"></i>
+</span>
+DEVELOPMENT
+</div>
+</div>
+<p class="mb-4">Integrated development environment with real-time security analysis and vulnerability detection during coding.</p>
+<div class="flex justify-between items-center">
+<button class="btn-outline px-4 py-2 text-sm !rounded-button whitespace-nowrap">View Details</button>
+<div class="flex space-x-2">
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-github-fill"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-external-link-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="project-card overflow-hidden rounded-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/4e7240084828c63e8ccad6f0720378cb.jpg" alt="Project 6" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-orbitron text-primary">PredatorSuite</h3>
+<div class="security-badge">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-bug-fill"></i>
+</span>
+PENTESTING
+</div>
+</div>
+<p class="mb-4">Comprehensive penetration testing toolkit with automated exploit generation and vulnerability assessment.</p>
+<div class="flex justify-between items-center">
+<button class="btn-outline px-4 py-2 text-sm !rounded-button whitespace-nowrap">View Details</button>
+<div class="flex space-x-2">
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-github-fill"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+<i class="ri-external-link-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-12">
+<button class="btn-primary px-8 py-3 !rounded-button whitespace-nowrap flex items-center">
+<span class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-eye-line"></i>
+</span>
+View All Projects
+</button>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-[#0a1a10] relative">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-orbitron font-bold mb-16 section-title">SKILLS ARSENAL</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<div class="project-card p-8 h-full">
+<h3 class="text-xl font-orbitron mb-8 text-primary">Technical Proficiencies</h3>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="font-medium">Network Security</span>
+<span>95%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 95%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="font-medium">Penetration Testing</span>
+<span>90%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 90%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="font-medium">Secure Coding</span>
+<span>85%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 85%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="font-medium">Cryptography</span>
+<span>80%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 80%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="font-medium">Incident Response</span>
+<span>88%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 88%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="font-medium">Cloud Security</span>
+<span>82%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">Malware Analysis</span>
+<span>78%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="project-card p-8 h-full">
+<h3 class="text-xl font-orbitron mb-8 text-primary">Security Tools & Technologies</h3>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-shield-keyhole-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">Kali Linux</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-bug-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">Metasploit</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-wifi-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">Wireshark</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-lock-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">Burp Suite</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-scan-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">Nmap</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-file-search-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">OWASP ZAP</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-database-2-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">Splunk</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-cloud-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">AWS Security</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-3">
+<i class="ri-code-line ri-2x"></i>
+</div>
+<span class="text-center text-sm">Python</span>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="text-lg font-orbitron mb-4">Security Clearance</h4>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center">
+<svg class="progress-ring" width="60" height="60">
+<circle class="progress-ring-bg" stroke-width="4" fill="transparent" r="25" cx="30" cy="30"/>
+<circle class="progress-ring-circle" stroke-width="4" fill="transparent" r="25" cx="30" cy="30" stroke-dashoffset="26"/>
+</svg>
+<div class="ml-3">
+<div class="text-sm font-medium">Threat Analysis</div>
+<div class="text-xs text-gray-400">Advanced</div>
+</div>
+</div>
+<div class="flex items-center">
+<svg class="progress-ring" width="60" height="60">
+<circle class="progress-ring-bg" stroke-width="4" fill="transparent" r="25" cx="30" cy="30"/>
+<circle class="progress-ring-circle" stroke-width="4" fill="transparent" r="25" cx="30" cy="30" stroke-dashoffset="57"/>
+</svg>
+<div class="ml-3">
+<div class="text-sm font-medium">Exploit Development</div>
+<div class="text-xs text-gray-400">Intermediate</div>
+</div>
+</div>
+<div class="flex items-center">
+<svg class="progress-ring" width="60" height="60">
+<circle class="progress-ring-bg" stroke-width="4" fill="transparent" r="25" cx="30" cy="30"/>
+<circle class="progress-ring-circle" stroke-width="4" fill="transparent" r="25" cx="30" cy="30" stroke-dashoffset="14"/>
+</svg>
+<div class="ml-3">
+<div class="text-sm font-medium">Defense Systems</div>
+<div class="text-xs text-gray-400">Expert</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gradient-to-b from-[#0a1a10] to-black relative">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-orbitron font-bold mb-16 section-title">CONTACT PORTAL</h2>
+<div class="flex flex-col md:flex-row gap-12">
+<div class="md:w-1/2">
+<div class="project-card p-8 h-full">
+<h3 class="text-xl font-orbitron mb-6 text-primary">Secure Communication Channel</h3>
+<p class="mb-8">Establish a secure connection to discuss your cybersecurity needs. All communications are encrypted and protected by advanced security protocols.</p>
+<form>
+<div class="mb-6">
+<label for="name" class="block mb-2 text-sm font-medium">Identification</label>
+<div class="relative">
+<input type="text" id="name" class="form-input w-full px-4 py-3 !rounded-button border-none" placeholder="Enter your name" value="Asra">
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-user-line"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="email" class="block mb-2 text-sm font-medium">Secure Email</label>
+<div class="relative">
+<input type="email" id="email" class="form-input w-full px-4 py-3 !rounded-button border-none" placeholder="Enter your email">
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-mail-line"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="subject" class="block mb-2 text-sm font-medium">Subject Classification</label>
+<div class="relative">
+<select id="subject" class="form-input w-full px-4 py-3 !rounded-button border-none pr-8 appearance-none">
+<option value="">Select subject category</option>
+<option value="security-audit">Security Audit</option>
+<option value="penetration-testing">Penetration Testing</option>
+<option value="incident-response">Incident Response</option>
+<option value="security-training">Security Training</option>
+<option value="vulnerability-assessment">Vulnerability Assessment</option>
+<option value="security-architecture">Security Architecture</option>
+<option value="compliance-audit">Compliance Audit</option>
+<option value="threat-intelligence">Threat Intelligence</option>
+<option value="other">Other</option>
+</select>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-primary pointer-events-none">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="message" class="block mb-2 text-sm font-medium">Encrypted Message</label>
+<textarea id="message" rows="5" class="form-input w-full px-4 py-3 !rounded-button border-none resize-none" placeholder="Enter your message"></textarea>
+</div>
+<div class="mb-6 flex items-center">
+<input type="checkbox" id="security-check" class="custom-checkbox mr-3">
+<label for="security-check" class="text-sm">I confirm this is not an automated breach attempt</label>
+</div>
+<button type="submit" class="btn-primary w-full px-6 py-3 !rounded-button whitespace-nowrap flex items-center justify-center">
+<span class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-send-plane-line"></i>
+</span>
+Transmit Secure Message
+</button>
+</form>
+</div>
+</div>
+<div class="md:w-1/2">
+<div class="grid grid-cols-1 gap-8 h-full">
+<div class="project-card p-8">
+<h3 class="text-xl font-orbitron mb-6 text-primary">Security Outpost Coordinates</h3>
+<div class="flex items-start mb-6">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-4 bg-black bg-opacity-30 rounded-full shrink-0">
+<i class="ri-map-pin-line"></i>
+</div>
+<div>
+<h4 class="font-medium mb-1">Primary Location</h4>
+<p class="text-sm text-gray-300">Cyber Defense Tower, 1337 Security Blvd<br>Silicon Valley, CA 94088</p>
+</div>
+</div>
+<div class="flex items-start mb-6">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-4 bg-black bg-opacity-30 rounded-full shrink-0">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h4 class="font-medium mb-1">Encrypted Email</h4>
+<p class="text-sm text-gray-300">asra@cyberjungle.security</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-4 bg-black bg-opacity-30 rounded-full shrink-0">
+<i class="ri-phone-line"></i>
+</div>
+<div>
+<h4 class="font-medium mb-1">Secure Line</h4>
+<p class="text-sm text-gray-300">+1 (555) 137-3373</p>
+</div>
+</div>
+</div>
+<div class="project-card p-8">
+<h3 class="text-xl font-orbitron mb-6 text-primary">Digital Outposts</h3>
+<div class="grid grid-cols-2 gap-4">
+<a href="#" class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg hover:bg-opacity-50 transition-all">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-github-fill ri-lg"></i>
+</div>
+<span class="text-sm">GitHub</span>
+</a>
+<a href="#" class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg hover:bg-opacity-50 transition-all">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-linkedin-fill ri-lg"></i>
+</div>
+<span class="text-sm">LinkedIn</span>
+</a>
+<a href="#" class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg hover:bg-opacity-50 transition-all">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</div>
+<span class="text-sm">Twitter</span>
+</a>
+<a href="#" class="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg hover:bg-opacity-50 transition-all">
+<div class="w-10 h-10 flex items-center justify-center text-primary mb-2">
+<i class="ri-medium-fill ri-lg"></i>
+</div>
+<span class="text-sm">Medium</span>
+</a>
+</div>
+</div>
+<div class="project-card p-8">
+<h3 class="text-xl font-orbitron mb-6 text-primary">Response Time</h3>
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm">Standard Inquiries</span>
+<span class="text-sm">24 hours</span>
+</div>
+<div class="skill-bar mb-6">
+<div class="skill-progress" style="width: 30%"></div>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm">Security Incidents</span>
+<span class="text-sm">1 hour</span>
+</div>
+<div class="skill-bar mb-6">
+<div class="skill-progress" style="width: 90%"></div>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm">Project Proposals</span>
+<span class="text-sm">48 hours</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 15%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black py-12 border-t border-primary border-opacity-20">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<p class="text-sm text-gray-400 mb-6">Securing the digital wilderness with advanced cybersecurity solutions and innovative defense strategies.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full border border-primary border-opacity-20">
+<i class="ri-github-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full border border-primary border-opacity-20">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full border border-primary border-opacity-20">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full border border-primary border-opacity-20">
+<i class="ri-medium-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-orbitron mb-6">Quick Links</h4>
+<ul class="space-y-3">
+<li><a href="#home" class="text-sm text-gray-400 hover:text-primary transition-colors">Home</a></li>
+<li><a href="#about" class="text-sm text-gray-400 hover:text-primary transition-colors">About</a></li>
+<li><a href="#projects" class="text-sm text-gray-400 hover:text-primary transition-colors">Projects</a></li>
+<li><a href="#skills" class="text-sm text-gray-400 hover:text-primary transition-colors">Skills</a></li>
+<li><a href="#contact" class="text-sm text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-orbitron mb-6">Services</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Security Audits</a></li>
+<li><a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Penetration Testing</a></li>
+<li><a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Incident Response</a></li>
+<li><a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Security Training</a></li>
+<li><a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Secure Development</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-orbitron mb-6">Newsletter</h4>
+<p class="text-sm text-gray-400 mb-4">Subscribe to receive security alerts and updates.</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Enter your email" class="form-input px-4 py-2 !rounded-l-button !rounded-r-none border-none flex-grow">
+<button type="submit" class="btn-primary px-4 py-2 !rounded-r-button !rounded-l-none whitespace-nowrap">
+<span class="w-5 h-5 flex items-center justify-center">
+<i class="ri-send-plane-line"></i>
+</span>
+</button>
+</div>
+</form>
+<div class="flex items-center">
+<label class="switch mr-3">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+<span class="text-sm text-gray-400">Receive security alerts</span>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+<p class="text-sm text-gray-500 mb-4 md:mb-0">&copy; 2025 Cyber Jungle Security by Asra. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-sm text-gray-500 hover:text-primary transition-colors">Privacy Policy</a>
+<a href="#" class="text-sm text-gray-500 hover:text-primary transition-colors">Terms of Service</a>
+<a href="#" class="text-sm text-gray-500 hover:text-primary transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+// Matrix effect with 3D depth
+const canvas = document.createElement('canvas');
+canvas.id = 'matrix-canvas';
+document.body.appendChild(canvas);
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+const binary = '01';
+const alphabet = binary;
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const rainDrops = [];
+const depth = [];
+const speed = [];
+for (let x = 0; x < columns; x++) {
+rainDrops[x] = 1;
+depth[x] = Math.random() * 0.5 + 0.5; // Random depth between 0.5 and 1
+speed[x] = Math.random() * 1.5 + 0.5; // Random speed between 0.5 and 2
+}
+const draw = () => {
+ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+for (let i = 0; i < rainDrops.length; i++) {
+const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+const alpha = depth[i];
+const size = fontSize * (0.8 + depth[i] * 0.5); // Size varies with depth
+ctx.font = size + 'px monospace';
+ctx.fillStyle = `rgba(0, ${Math.floor(255 * depth[i])}, ${Math.floor(157 * depth[i])}, ${alpha})`;
+ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+rainDrops[i] = 0;
+}
+rainDrops[i] += speed[i];
+}
+};
+setInterval(draw, 30);
+// 3D Cursor trailer effect
+const cursorTrailer = document.querySelector('.cursor-trailer');
+let mouseX = 0, mouseY = 0;
+let trailX = 0, trailY = 0;
+document.addEventListener('mousemove', (e) => {
+mouseX = e.clientX;
+mouseY = e.clientY;
+});
+document.addEventListener('mousedown', () => {
+cursorTrailer.classList.add('active');
+});
+document.addEventListener('mouseup', () => {
+cursorTrailer.classList.remove('active');
+});
+// Add 3D tilt effect to cards on mouse move
+const cards = document.querySelectorAll('.project-card');
+cards.forEach(card => {
+card.addEventListener('mousemove', (e) => {
+const rect = card.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+const angleX = (y - centerY) / 20;
+const angleY = (centerX - x) / 20;
+card.style.transform = `translateY(-5px) translateZ(20px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+card.style.boxShadow = `
+${angleY * 0.5}px ${angleX * 0.5}px 15px rgba(0, 255, 157, 0.3),
+0 10px 20px rgba(0, 0, 0, 0.2)
+`;
+});
+card.addEventListener('mouseleave', () => {
+card.style.transform = '';
+card.style.boxShadow = '';
+});
+});
+// Smooth cursor trail animation
+function animateCursor() {
+// Smooth follow with easing
+trailX += (mouseX - trailX) * 0.1;
+trailY += (mouseY - trailY) * 0.1;
+cursorTrailer.style.left = trailX + 'px';
+cursorTrailer.style.top = trailY + 'px';
+requestAnimationFrame(animateCursor);
+}
+animateCursor();
+// Tab switching
+const tabButtons = document.querySelectorAll('.tab-button');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+tabButtons.forEach(btn => btn.classList.remove('active'));
+button.classList.add('active');
+});
+});
+// Animate skill bars on scroll with 3D effects
+const skillBars = document.querySelectorAll('.skill-progress');
+const progressRings = document.querySelectorAll('.progress-ring-circle');
+const animateElements = () => {
+skillBars.forEach(bar => {
+const barPosition = bar.getBoundingClientRect().top;
+const screenPosition = window.innerHeight / 1.3;
+if (barPosition < screenPosition) {
+bar.style.width = bar.parentElement.previousElementSibling.lastElementChild.textContent;
+// Add 3D pop effect
+bar.animate([
+{ transform: 'translateZ(0px)', opacity: 0.7 },
+{ transform: 'translateZ(5px)', opacity: 1 }
+], {
+duration: 800,
+fill: 'forwards',
+easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
+});
+}
+});
+progressRings.forEach(ring => {
+const ringPosition = ring.getBoundingClientRect().top;
+const screenPosition = window.innerHeight / 1.3;
+if (ringPosition < screenPosition) {
+const radius = ring.getAttribute('r');
+const circumference = 2 * Math.PI * radius;
+// Get random percentage between 65% and 95%
+const percent = Math.floor(Math.random() * (95 - 65 + 1)) + 65;
+const offset = circumference - (percent / 100) * circumference;
+ring.style.strokeDasharray = `${circumference} ${circumference}`;
+// Animate with delay for 3D effect
+setTimeout(() => {
+ring.style.strokeDashoffset = offset;
+// Add pulsing effect
+ring.animate([
+{ filter: 'drop-shadow(0 0 2px rgba(0, 255, 157, 0.3))' },
+{ filter: 'drop-shadow(0 0 8px rgba(0, 255, 157, 0.6))' },
+{ filter: 'drop-shadow(0 0 2px rgba(0, 255, 157, 0.3))' }
+], {
+duration: 2000,
+iterations: Infinity
+});
+}, 300);
+}
+});
+};
+// Add parallax scrolling effect to sections
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+const scrollY = window.scrollY;
+sections.forEach(section => {
+const sectionTop = section.offsetTop;
+const sectionHeight = section.offsetHeight;
+if (scrollY > sectionTop - window.innerHeight && scrollY < sectionTop + sectionHeight) {
+const speed = section.dataset.speed || 0.1;
+const yPos = (scrollY - sectionTop) * speed;
+section.style.transform = `translateZ(${-yPos}px)`;
+}
+});
+});
+window.addEventListener('scroll', animateElements);
+window.addEventListener('load', animateElements);
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+</script>
+</body>
+</html>
